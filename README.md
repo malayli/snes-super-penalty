@@ -2,7 +2,7 @@
 
 ## Description
 This is a game for the Super Nintendo and Super Famicom.
-
+The images and sfx of Konami's ISS Deluxe are reused to make this game.
 It is built with PVSnesLib.
 
 ## Preview
