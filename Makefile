@@ -72,6 +72,26 @@ oam2.pic: res/superpenalty/sprites/oam2.bmp
 
 # Number Sprites
 
+number0.pic: res/superpenalty/sprites/number0.bmp
+	@echo convert bitmap ... $(notdir $@)
+	$(GFXCONV) -pr -pc16 -n -gs8 -pe0 -fbmp $<
+
+number1.pic: res/superpenalty/sprites/number1.bmp
+	@echo convert bitmap ... $(notdir $@)
+	$(GFXCONV) -pr -pc16 -n -gs8 -pe0 -fbmp $<
+
+number2.pic: res/superpenalty/sprites/number2.bmp
+	@echo convert bitmap ... $(notdir $@)
+	$(GFXCONV) -pr -pc16 -n -gs8 -pe0 -fbmp $<
+
+number3.pic: res/superpenalty/sprites/number3.bmp
+	@echo convert bitmap ... $(notdir $@)
+	$(GFXCONV) -pr -pc16 -n -gs8 -pe0 -fbmp $<
+
+number4.pic: res/superpenalty/sprites/number4.bmp
+	@echo convert bitmap ... $(notdir $@)
+	$(GFXCONV) -pr -pc16 -n -gs8 -pe0 -fbmp $<
+
 number5.pic: res/superpenalty/sprites/number5.bmp
 	@echo convert bitmap ... $(notdir $@)
 	$(GFXCONV) -pr -pc16 -n -gs8 -pe0 -fbmp $<
@@ -164,7 +184,7 @@ flagcolombia.pic: res/superpenalty/sprites/flagcolombia.bmp
 	$(GFXCONV) -pc16 -n -gs8 -pe5 -fbmp $<
 
 stages: hudFont.pic home.pic stage1BG1.pic oam1.pic oam2.pic striker.pic goalkeeper.pic
-numbers: number5.pic number6.pic number7.pic number8.pic number9.pic
+numbers: number0.pic number1.pic number2.pic number3.pic number4.pic number5.pic number6.pic number7.pic number8.pic number9.pic
 countriesflag: flagbrazil.pic flagengland.pic flagfrance.pic flagcolombia.pic
 man: stagePeopleMan1.pic stagePeopleMan2.pic stagePeopleMan3.pic
 oldman: stagePeopleOldMan1.pic stagePeopleOldMan2.pic stagePeopleOldMan3.pic

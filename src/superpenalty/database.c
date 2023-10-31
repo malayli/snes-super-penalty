@@ -3,6 +3,11 @@
 
 // ROM
 
+extern char number0Pic, number0Pic_end;
+extern char number1Pic, number1Pic_end;
+extern char number2Pic, number2Pic_end;
+extern char number3Pic, number3Pic_end;
+extern char number4Pic, number4Pic_end;
 extern char number5Pic, number5Pic_end;
 extern char number6Pic, number6Pic_end;
 extern char number7Pic, number7Pic_end;
@@ -29,7 +34,7 @@ const u8 playersNumber[] = {
 };
 
 const u8 *numberSource[] = {
-    &number6Pic, &number6Pic, &number6Pic, &number6Pic, &number6Pic, 
+    &number0Pic, &number1Pic, &number2Pic, &number3Pic, &number4Pic, 
     &number5Pic, &number6Pic, &number7Pic, &number8Pic, &number9Pic
 };
 

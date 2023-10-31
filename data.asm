@@ -68,6 +68,21 @@ oam2Pic: .incbin "res/superpenalty/sprites/oam2.pic"
 oam2Pic_end:
 
 ; Numbers
+number0Pic: .incbin "res/superpenalty/sprites/number0.pic" 
+number0Pic_end:
+
+number1Pic: .incbin "res/superpenalty/sprites/number1.pic" 
+number1Pic_end:
+
+number2Pic: .incbin "res/superpenalty/sprites/number2.pic" 
+number2Pic_end:
+
+number3Pic: .incbin "res/superpenalty/sprites/number3.pic" 
+number3Pic_end:
+
+number4Pic: .incbin "res/superpenalty/sprites/number4.pic" 
+number4Pic_end:
+
 number5Pic: .incbin "res/superpenalty/sprites/number5.pic" 
 number5Pic_end:
 
