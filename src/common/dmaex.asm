@@ -70,3 +70,38 @@ setModeHdmaWindow67:
     rtl 
 
 .ENDS
+
+.SECTION ".dmaCopyVramChannel1_text" SUPERFREE
+
+;---------------------------------------------------------------------------
+; void dmaCopyVramChannel1(u8 * source, u16 address, u16 size);
+dmaCopyVramChannel1:
+    php
+
+;   jsr.w   _wait_nmid
+    rep #$20
+    lda 9,s 
+    sta.l   $2116           ; address for VRAM write(or read)
+
+    lda 11,s
+    sta.l   $4315           ; number of bytes to be copied
+    lda 5,s 
+    sta.l   $4312           ; data offset in memory
+
+    sep #$20                ; 8bit A
+    lda #$80
+    sta.l   $2115           ; VRAM address increment value designation
+    lda 7,s                 ; bank address of data in memory
+    sta.l   $4314
+    lda #1
+    sta.l   $4310           ; 1= word increment
+    lda #$18
+    sta.l   $4311           ; 2118 is the VRAM gate
+
+    lda #2                  ; turn on bit 1 (channel 0) of DMA
+    sta.l   $420b
+
+    plp
+    rtl
+
+.ENDS

@@ -292,8 +292,8 @@ void setCountry1() {
             break;
     }
     oamSetString(countriesName[country1type]);
-    dmaCopyVram(flagPicPtr, 0x78A0, 96);
-    dmaCopyVram(flagPicPtr + 96, 0x79A0, 96);
+    dmaCopyVramChannel1(flagPicPtr, 0x78A0, 96);
+    dmaCopyVramChannel1(flagPicPtr + 96, 0x79A0, 96);
 }
 
 /*!\brief Set the country 2.
@@ -318,8 +318,8 @@ void setCountry2() {
             break;
     }
     oamSetString(countriesName[country2type]);
-    dmaCopyVram(flagPicPtr, 0x78D0, 96);
-    dmaCopyVram(flagPicPtr + 96, 0x79D0, 96);
+    dmaCopyVramChannel1(flagPicPtr, 0x78D0, 96);
+    dmaCopyVramChannel1(flagPicPtr + 96, 0x79D0, 96);
 }
 
 /*!\brief Initialize the level session.
@@ -471,15 +471,15 @@ void initLevel() {
 
     initHud(0x5000);
 
-    dmaCopyVram((u8 *)&oam1Pic, 0x6000, &oam1Pic_end - &oam1Pic);
-    dmaCopyVram((u8 *)&oam2Pic, 0x7000, &oam2Pic_end - &oam2Pic);
+    dmaCopyVramChannel1((u8 *)&oam1Pic, 0x6000, &oam1Pic_end - &oam1Pic);
+    dmaCopyVramChannel1((u8 *)&oam2Pic, 0x7000, &oam2Pic_end - &oam2Pic);
 
     // Striker Number
     if (isCpuStriker == 0) {
-        dmaCopyVram(numberSource[playersNumber[numberIndex1 + ((shootingCountry1Round+1)<<1)]], 0x72A0, 192);
+        dmaCopyVramChannel1(numberSource[playersNumber[numberIndex1 + ((shootingCountry1Round+1)<<1)]], 0x72A0, 192);
 
     } else if (isCpuStriker == 1) {
-        dmaCopyVram(numberSource[playersNumber[numberIndex2 + ((shootingCountry2Round+1)<<1)]], 0x72A0, 192);
+        dmaCopyVramChannel1(numberSource[playersNumber[numberIndex2 + ((shootingCountry2Round+1)<<1)]], 0x72A0, 192);
     }
 
     WaitForVBlank();
@@ -488,8 +488,8 @@ void initLevel() {
 
     WaitForVBlank();
 
-    dmaCopyVram((u8 *)stage1Bg1TileMapType1, 0x0000, 2048);
-    dmaCopyVram((u8 *)stage1Bg2TileMap, 0x0000 + 2048, 2048);
+    dmaCopyVramChannel1((u8 *)stage1Bg1TileMapType1, 0x0000, 2048);
+    dmaCopyVramChannel1((u8 *)stage1Bg2TileMap, 0x0000 + 2048, 2048);
 
     // Players Name
     
@@ -628,10 +628,10 @@ void initLevel() {
         0b00011111, 
         0b01000000);
 
-    dmaCopyVram((u8 *)&goalkeeperPic, 0x6000, 256);
-    dmaCopyVram((u8 *)&goalkeeperPic + 256, 0x6100, 256);
+    dmaCopyVramChannel1((u8 *)&goalkeeperPic, 0x6000, 256);
+    dmaCopyVramChannel1((u8 *)&goalkeeperPic + 256, 0x6100, 256);
 
-    dmaCopyVram((u8 *)&strikerPic, 0x7000, 992);
+    dmaCopyVramChannel1((u8 *)&strikerPic, 0x7000, 992);
 
     WaitForVBlank();
     initLevelMusic();
@@ -653,24 +653,24 @@ void updateSupporters() {
     }
 
     if (manFramesCounter == 0) {
-        dmaCopyVram((u8 *)&stagePeopleMan1Pic, 0x3600, 192);
+        dmaCopyVramChannel1((u8 *)&stagePeopleMan1Pic, 0x3600, 192);
 
-        dmaCopyVram((u8 *)&stagePeopleOldMan1Pic, 0x36C0, 160);
+        dmaCopyVramChannel1((u8 *)&stagePeopleOldMan1Pic, 0x36C0, 160);
 
     } else if (manFramesCounter == 7) {
-        dmaCopyVram((u8 *)&stagePeopleMan2Pic, 0x3600, 192);
+        dmaCopyVramChannel1((u8 *)&stagePeopleMan2Pic, 0x3600, 192);
 
-        dmaCopyVram((u8 *)&stagePeopleOldMan2Pic, 0x36C0, 160);
+        dmaCopyVramChannel1((u8 *)&stagePeopleOldMan2Pic, 0x36C0, 160);
 
     } else if (manFramesCounter == 15) {
-        dmaCopyVram((u8 *)&stagePeopleMan1Pic, 0x3600, 192);
+        dmaCopyVramChannel1((u8 *)&stagePeopleMan1Pic, 0x3600, 192);
 
-        dmaCopyVram((u8 *)&stagePeopleOldMan1Pic, 0x36C0, 160);
+        dmaCopyVramChannel1((u8 *)&stagePeopleOldMan1Pic, 0x36C0, 160);
 
     } else if (manFramesCounter == 23) {
-        dmaCopyVram((u8 *)&stagePeopleMan3Pic, 0x3600, 192);
+        dmaCopyVramChannel1((u8 *)&stagePeopleMan3Pic, 0x3600, 192);
 
-        dmaCopyVram((u8 *)&stagePeopleOldMan3Pic, 0x36C0, 160);
+        dmaCopyVramChannel1((u8 *)&stagePeopleOldMan3Pic, 0x36C0, 160);
     }
 
     manFramesCounter++;
@@ -685,20 +685,20 @@ void updateBigFlag() {
     }
 
     if (bigFlagFramesCounter == 0) {
-        dmaCopyVram((u8 *)&stagePeopleBigFlag2Pic, 0x3760, 160);
-        dmaCopyVram((u8 *)&stagePeopleBigFlag2Pic, 0x37B0, 160);
+        dmaCopyVramChannel1((u8 *)&stagePeopleBigFlag2Pic, 0x3760, 160);
+        dmaCopyVramChannel1((u8 *)&stagePeopleBigFlag2Pic, 0x37B0, 160);
 
     } else if (bigFlagFramesCounter == 15) {
-        dmaCopyVram((u8 *)&stagePeopleBigFlag1Pic, 0x3760, 160);
-        dmaCopyVram((u8 *)&stagePeopleBigFlag1Pic, 0x37B0, 160);
+        dmaCopyVramChannel1((u8 *)&stagePeopleBigFlag1Pic, 0x3760, 160);
+        dmaCopyVramChannel1((u8 *)&stagePeopleBigFlag1Pic, 0x37B0, 160);
 
     } else if (bigFlagFramesCounter == 31) {
-        dmaCopyVram((u8 *)&stagePeopleBigFlag2Pic, 0x3760, 160);
-        dmaCopyVram((u8 *)&stagePeopleBigFlag2Pic, 0x37B0, 160);
+        dmaCopyVramChannel1((u8 *)&stagePeopleBigFlag2Pic, 0x3760, 160);
+        dmaCopyVramChannel1((u8 *)&stagePeopleBigFlag2Pic, 0x37B0, 160);
 
     } else if (bigFlagFramesCounter == 47) {
-        dmaCopyVram((u8 *)&stagePeopleBigFlag3Pic, 0x3760, 160);
-        dmaCopyVram((u8 *)&stagePeopleBigFlag3Pic, 0x37B0, 160);
+        dmaCopyVramChannel1((u8 *)&stagePeopleBigFlag3Pic, 0x3760, 160);
+        dmaCopyVramChannel1((u8 *)&stagePeopleBigFlag3Pic, 0x37B0, 160);
     }
 
     bigFlagFramesCounter++;
@@ -713,19 +713,19 @@ void updateLittleFlag() {
     }
 
     if (littleFlagFramesCounter == 0) {
-        dmaCopyVram((u8 *)&stagePeopleLittleFlagPic, 0x3800, 32);
-        dmaCopyVram((u8 *)&stagePeopleLittleFlagPic, 0x3810, 32);
-        dmaCopyVram((u8 *)&stagePeopleLittleFlagPic, 0x3820, 32);
+        dmaCopyVramChannel1((u8 *)&stagePeopleLittleFlagPic, 0x3800, 32);
+        dmaCopyVramChannel1((u8 *)&stagePeopleLittleFlagPic, 0x3810, 32);
+        dmaCopyVramChannel1((u8 *)&stagePeopleLittleFlagPic, 0x3820, 32);
 
     } else if (littleFlagFramesCounter == 15) {
-        dmaCopyVram((u8 *)&stagePeopleLittleFlagPic + 32, 0x3800, 32);
-        dmaCopyVram((u8 *)&stagePeopleLittleFlagPic + 32, 0x3810, 32);
-        dmaCopyVram((u8 *)&stagePeopleLittleFlagPic + 32, 0x3820, 32);
+        dmaCopyVramChannel1((u8 *)&stagePeopleLittleFlagPic + 32, 0x3800, 32);
+        dmaCopyVramChannel1((u8 *)&stagePeopleLittleFlagPic + 32, 0x3810, 32);
+        dmaCopyVramChannel1((u8 *)&stagePeopleLittleFlagPic + 32, 0x3820, 32);
 
     } else if (littleFlagFramesCounter == 31) {
-        dmaCopyVram((u8 *)&stagePeopleLittleFlagPic + 64, 0x3800, 32);
-        dmaCopyVram((u8 *)&stagePeopleLittleFlagPic + 64, 0x3810, 32);
-        dmaCopyVram((u8 *)&stagePeopleLittleFlagPic + 64, 0x3820, 32);
+        dmaCopyVramChannel1((u8 *)&stagePeopleLittleFlagPic + 64, 0x3800, 32);
+        dmaCopyVramChannel1((u8 *)&stagePeopleLittleFlagPic + 64, 0x3810, 32);
+        dmaCopyVramChannel1((u8 *)&stagePeopleLittleFlagPic + 64, 0x3820, 32);
     }
 
     littleFlagFramesCounter++;
@@ -3522,12 +3522,12 @@ void updateLevel() {
         } else if (displayBlueCircle == 0) {
             oamSetEx(selectedBallCountryStartOamId, OBJ_LARGE, OBJ_HIDE);
             if (scoreState == 1) {
-                dmaCopyVram((u8 *)circleUpTileMap, goalUpAddress, 4);
-                dmaCopyVram((u8 *)circleDownTileMap, goalDownAddress, 4);
+                dmaCopyVramChannel1((u8 *)circleUpTileMap, goalUpAddress, 4);
+                dmaCopyVramChannel1((u8 *)circleDownTileMap, goalDownAddress, 4);
 
             } else {
-                dmaCopyVram((u8 *)crossUpTileMap, goalUpAddress, 4);
-                dmaCopyVram((u8 *)crossDownTileMap, goalDownAddress, 4);
+                dmaCopyVramChannel1((u8 *)crossUpTileMap, goalUpAddress, 4);
+                dmaCopyVramChannel1((u8 *)crossDownTileMap, goalDownAddress, 4);
             }
 
             displayBlueCircle = 1;

@@ -54,7 +54,7 @@ void initHome() {
 
     WaitForVBlank();
 
-    dmaCopyVram(&homeMap, 0x0000, 2048);
+    dmaCopyVramChannel1(&homeMap, 0x0000, 2048);
 
     initBg3FontMapEx(&hudFontPic, &hudFontPic_end, &hudFontPalette, PAL0, 0x1000, 0x5000);
     printName("PRESS START", 11);
