@@ -19,35 +19,11 @@ int main(void) {
 
     nmiSet(superNintendoVblank);
 
-    inputs[0] = handleHomeInput;
-    inputs[1] = handleLevelInput;
-    inputs[2] = emptyFunction;
-    inputs[3] = emptyFunction;
-    inputs[4] = emptyFunction;
-    inputs[5] = emptyFunction;
-    inputs[6] = emptyFunction;
-    inputs[7] = emptyFunction;
-    inputs[8] = emptyFunction;
-    inputs[9] = emptyFunction;
-    inputs[10] = emptyFunction;
-    inputs[11] = emptyFunction;
-    inputs[12] = emptyFunction;
-    inputs[13] = emptyFunction;
+    inputs[GameStateHome] = handleHomeInput;
+    inputs[GameStateLevel] = handleLevelInput;
 
-    updates[0] = emptyFunction;
-    updates[1] = updateLevel;
-    updates[2] = emptyFunction;
-    updates[3] = emptyFunction;
-    updates[4] = emptyFunction;
-    updates[5] = emptyFunction;
-    updates[6] = emptyFunction;
-    updates[7] = emptyFunction;
-    updates[8] = emptyFunction;
-    updates[9] = emptyFunction;
-    updates[10] = emptyFunction;
-    updates[11] = emptyFunction;
-    updates[12] = emptyFunction;
-    updates[13] = emptyFunction;
+    updates[GameStateHome] = emptyFunction;
+    updates[GameStateLevel] = updateLevel;
 
     refreshBg1 = 0;
     refreshBg3 = 0;
