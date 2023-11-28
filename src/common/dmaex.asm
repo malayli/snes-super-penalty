@@ -98,7 +98,7 @@ dmaCopyVramChannel1:
     lda #$18
     sta.l   $4311           ; 2118 is the VRAM gate
 
-    lda #2                  ; turn on bit 1 (channel 0) of DMA
+    lda #2                  ; turn on bit 2 (channel 1) of DMA
     sta.l   $420b
 
     plp
